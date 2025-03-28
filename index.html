@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abgon | Superior Quality, Affordable Prices, Premium Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --custom-orange: rgb(234, 107, 0);
+            --custom-gray: rgb(104, 109, 112);
+        }
+
+        /* Gradient overlay for hero section */
+        .gradient-overlay {
+            background: linear-gradient(to bottom right, rgba(234, 107, 0, 0.7), rgba(255, 255, 255, 0.7));
+        }
+
+        html {
+            scroll-behavior: smooth ;
+        }
+
+        /* Hero background pan animation */
+        .hero-bg {
+            animation: pan 5s linear infinite;
+            animation: pan
+        }
+
+        @keyframes pan {
+            100% {
+                background-position: 100% 0;
+            }
+        }
+
+        /* Product card hover effects */
+        .product-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Chat button pulse animation */
+        #chatButton {
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Fade-in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Button hover effect */
+        .btn-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800">
+    <!-- Header -->
+    <header id="mainHeader" class="bg-white bg-opacity-100 shadow transition-colors duration-300 fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <img src="your-logo-url.png" alt="Abgon Logo" class="h-10 w-auto" />
+            </div>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#products"
+                            class="text-gray-700 hover:text-[var(--custom-orange)] transition-colors duration-300">Products</a>
+                    </li>
+                    <li><a href="#services"
+                            class="text-gray-700 hover:text-[var(--custom-orange)] transition-colors duration-300">Service
+                            Network</a></li>
+                    <li><a href="#news"
+                            class="text-gray-700 hover:text-[var(--custom-orange)] transition-colors duration-300">News
+                            & Success Stories</a></li>
+                    <li><a href="#contact"
+                            class="text-gray-700 hover:text-[var(--custom-orange)] transition-colors duration-300">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center">
+        <div class="absolute inset-0 bg-cover bg-center hero-bg"
+            style="background-image: url('./ombine-harvester-working-golden-1536x495.jpg'); filter: brightness(0.75);">
+        </div>
+        <div class="absolute inset-0 gradient-overlay"></div>
+        <div class="relative z-10 container mx-auto px-4 text-center fade-in">
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4"
+                style="font-family: 'MicrogrammaDBolExt', sans-serif;">
+                Superior Quality, Affordable Prices, Premium Service
+            </h1>
+            <p class="text-xl text-white max-w-2xl mx-auto mb-8">
+                Abgon is dedicated to providing efficient and durable agricultural machinery across Africa.
+            </p>
+            <a href="#services"
+                class="bg-[var(--custom-orange)] hover:bg-orange-600 text-white py-3 px-8 rounded shadow btn-hover transition">
+                Find a Distributor
+            </a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-gray-50 fade-in">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12" style="font-family: 'MicrogrammaDBolExt', sans-serif;">Our
+                Products</h2>
+            <div class="flex justify-center space-x-4 mb-12">
+                <button onclick="filterProducts('all')"
+                    class="px-6 py-2 border border-[var(--custom-gray)] rounded hover:bg-[var(--custom-orange)] hover:text-white transition">All</button>
+                <button onclick="filterProducts('tractor')"
+                    class="px-6 py-2 border border-[var(--custom-gray)] rounded hover:bg-[var(--custom-orange)] hover:text-white transition">Tractors</button>
+                <button onclick="filterProducts('harvester')"
+                    class="px-6 py-2 border border-[var(--custom-gray)] rounded hover:bg-[var(--custom-orange)] hover:text-white transition">Harvesters</button>
+                <button onclick="filterProducts('irrigation')"
+                    class="px-6 py-2 border border-[var(--custom-gray)] rounded hover:bg-[var(--custom-orange)] hover:text-white transition">Irrigation
+                    Equipment</button>
+            </div>
+            <div id="productGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="product-card border border-[var(--custom-gray)] rounded overflow-hidden bg-white fade-in"
+                    data-category="tractor">
+                    <img src="tractor-image.webp" alt="Tractor" class="w-full h-56 object-cover" />
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2" style="font-family: 'Eurostile', sans-serif;">Tractor</h3>
+                        <p class="text-gray-600">Efficient and robust tractors designed for optimal performance.</p>
+                    </div>
+                </div>
+                <div class="product-card border border-[var(--custom-gray)] rounded overflow-hidden bg-white fade-in"
+                    data-category="harvester">
+                    <img src="harvester-image.jpg" alt="Harvester" class="w-full h-56 object-cover" />
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2" style="font-family: 'Eurostile', sans-serif;">Harvester</h3>
+                        <p class="text-gray-600">Reliable harvesters built for tough conditions.</p>
+                    </div>
+                </div>
+                <div class="product-card border border-[var(--custom-gray)] rounded overflow-hidden bg-white fade-in"
+                    data-category="irrigation">
+                    <img src="irrigation-image.jpg" alt="Irrigation Equipment" class="w-full h-56 object-cover" />
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2" style="font-family: 'Eurostile', sans-serif;">Irrigation
+                            Equipment</h3>
+                        <p class="text-gray-600">Advanced irrigation systems to keep your fields thriving.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 fade-in">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
+                <img src="african-agriculture.jpg" alt="African Agriculture" class="rounded-lg shadow-2xl w-full" />
+            </div>
+            <div class="md:w-1/2 md:pl-12 fade-in">
+                <h2 class="text-3xl font-bold mb-6" style="font-family: 'MicrogrammaDBolExt', sans-serif;">Localized
+                    Service Network & After-Sales Support</h2>
+                <p class="mb-8 text-gray-700 text-lg">
+                    We are committed to connecting you with local distributors and providing unmatched after-sales
+                    support across Africa.
+                </p>
+                <a href="#contact"
+                    class="bg-[var(--custom-orange)] hover:bg-orange-600 text-white py-3 px-8 rounded shadow btn-hover transition">
+                    Find a Distributor
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="py-20 bg-gray-50 fade-in">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12" style="font-family: 'MicrogrammaDBolExt', sans-serif;">News
+                & Success Stories</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden fade-in">
+                    <img src="success-story1.jpg" alt="Success Story 1" class="w-full h-56 object-cover" />
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Empowering Farmers in Rural Kenya</h3>
+                        <p class="text-gray-600">Learn how our tractors transformed a small community's farming
+                            practices.</p>
+                        <a href="#" class="text-[var(--custom-orange)] mt-4 inline-block font-semibold">Read More</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden fade-in">
+                    <img src="news-article1.jpg" alt="News Article 1" class="w-full h-56 object-cover" />
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Abgon Launches New Irrigation System</h3>
+                        <p class="text-gray-600">Our latest irrigation technology is set to revolutionize water
+                            management.</p>
+                        <a href="#" class="text-[var(--custom-orange)] mt-4 inline-block font-semibold">Read More</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden fade-in">
+                    <img src="success-story2.jpg" alt="Success Story 2" class="w-full h-56 object-cover" />
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Increased Yields with Abgon Harvesters</h3>
+                        <p class="text-gray-600">See how our harvesters helped a local farm achieve record yields.</p>
+                        <a href="#" class="text-[var(--custom-orange)] mt-4 inline-block font-semibold">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Button -->
+    <button id="chatButton"
+        class="fixed bottom-6 right-6 bg-[var(--custom-orange)] hover:bg-orange-600 text-white p-4 rounded-full shadow-lg">
+        Chat
+    </button>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-white py-10 border-t border-gray-200 fade-in">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4">&copy; 2025 Abgon. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="text-[var(--custom-gray)] hover:text-[var(--custom-orange)] transition">Facebook</a>
+                <a href="#" class="text-[var(--custom-gray)] hover:text-[var(--custom-orange)] transition">Twitter</a>
+                <a href="#" class="text-[var(--custom-gray)] hover:text-[var(--custom-orange)] transition">LinkedIn</a>
+            </div>
+            <nav class="text-sm">
+                <a href="#" class="mx-3 text-gray-600 hover:text-[var(--custom-orange)] transition">Privacy Policy</a>
+                <a href="#" class="mx-3 text-gray-600 hover:text-[var(--custom-orange)] transition">Terms of Service</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        function filterProducts(category) {
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Fade-in animation using IntersectionObserver
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Change header background on scroll
+        window.addEventListener('scroll', function () {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 50) {
+                header.classList.add('bg-gray-100', 'shadow-lg');
+            } else {
+                header.classList.remove('bg-gray-100', 'shadow-lg');
+            }
+        });
+    </script>
+</body>
+
+</html>
