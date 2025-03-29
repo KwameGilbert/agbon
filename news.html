@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Abgon | News & Success Stories</title>
+    <title>News & Success Stories | Agbon</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
@@ -12,189 +12,278 @@
             --custom-gray: rgb(104, 109, 112);
         }
 
-        /* Smooth scroll behavior */
-        html {
-            scroll-behavior: smooth;
+        /* Hero Section Styles */
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
         }
 
-        /* Fade-in animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        .hero-text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        /* News Card Hover Effects */
+        .news-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Banner gradient background */
-        .banner-bg {
-            background: linear-gradient(135deg, var(--custom-orange), #ffffff);
-        }
-
-        /* Card hover effect with gradient overlay */
-        .card-hover:hover {
-            background: linear-gradient(135deg, rgba(234, 107, 0, 0.2), transparent);
+        .news-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
-        /* Button hover scaling */
-        .btn-hover:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        /* Category Badge Styles */
+        .category-badge {
+            background-color: var(--custom-orange);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            z-index: 10;
         }
 
-        /* Rounded corners, modern look */
-        .rounded-xl {
-            border-radius: 1rem;
+        /* Custom Button Styles */
+        .btn-primary {
+            background-color: var(--custom-orange);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: rgb(204, 93, 0);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
     </style>
 </head>
 
 <body class="font-sans text-gray-800 bg-gray-50">
-
-    <!-- Header with Breadcrumb -->
-    <header class="bg-white shadow fixed top-0 left-0 w-full z-50">
-        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-            <div class="flex items-center">
-                <img src="agbonlogo.png" alt="Abgon Logo" class="h-10 w-auto" />
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="agbonlogo.png" alt="Agbon Logo" class="h-12 w-auto" />
+                </a>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#products" class="text-gray-700 hover:text-[var(--custom-orange)] transition-colors duration-300 font-medium">Products</a>
+                    <a href="index.html#services" class="text-gray-700 hover:text-[var(--custom-orange)] transition-colors duration-300 font-medium">Service Network</a>
+                    <a href="news.html" class="text-[var(--custom-orange)] font-medium">News & Success Stories</a>
+                    <a href="contact.html" class="btn-primary hover:bg-orange-600">Contact</a>
+                </nav>
+                <button class="md:hidden text-gray-700 hover:text-[var(--custom-orange)]">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
-            <nav class="hidden md:block">
-                <ul class="flex space-x-8">
-                    <li><a href="index.html" class="text-gray-700 hover:text-[var(--custom-orange)] transition-colors duration-300 font-medium">Home</a></li>
-                    <li><a href="services.html" class="text-gray-700 hover:text-[var(--custom-orange)] transition-colors duration-300 font-medium">Service Network</a></li>
-                    <li><a href="news.html" class="text-gray-700 hover:text-[var(--custom-orange)] transition-colors duration-300 font-medium">News & Success Stories</a></li>
-                    <li><a href="contact.html" class="bg-[var(--custom-orange)] text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-all duration-300 font-medium">Contact</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
 
-    <!-- Introduction Banner -->
-    <section class="banner-bg relative pt-24 pb-12 md:pt-32 md:pb-20">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4"
-                style="font-family: 'MicrogrammaDBolExt', sans-serif;">
-                News & Success Stories
-            </h1>
-            <p class="text-lg md:text-xl text-white max-w-2xl mx-auto">
-                Discover how Abgon is empowering communities, revolutionizing agriculture, and driving success across
-                Africa.
-            </p>
+    <!-- Hero Section -->
+    <section class="relative h-[80vh] flex items-center pt-16">
+        <div class="absolute inset-0">
+            <img src="success-story1.jpg" alt="Success Story Hero" class="w-full h-full object-cover" style="object-position: center 30%;">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 hero-text-shadow leading-tight">
+                    Transforming African Agriculture
+                </h1>
+                <p class="text-xl md:text-2xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
+                    Discover how Agbon is revolutionizing farming practices and empowering communities across Africa.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button class="btn-primary">
+                        View All Stories
+                    </button>
+                    <button class="btn-secondary">
+                        Latest Updates
+                    </button>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-4 py-12 space-y-16">
-        <!-- News Updates Section -->
-        <section class="fade-in">
-            <h2 class="text-3xl font-bold text-center mb-8" style="font-family: 'MicrogrammaDBolExt', sans-serif;">
-                Latest News
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- News Card 1 -->
-                <div
-                    class="bg-white rounded-xl overflow-hidden shadow-lg card-hover transition transform hover:-translate-y-1 fade-in">
-                    <img src="news-article1.jpg" alt="News Article 1" class="w-full h-56 object-cover" />
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2">Abgon Launches New Irrigation System</h3>
-                        <p class="text-gray-600 mb-4">
-                            Our latest irrigation technology is set to revolutionize water management in arid regions.
-                        </p>
-                        <a href="#" class="inline-block text-[var(--custom-orange)] font-semibold btn-hover transition">
-                            Read More &rarr;
-                        </a>
-                    </div>
-                </div>
-                <!-- News Card 2 -->
-                <div
-                    class="bg-white rounded-xl overflow-hidden shadow-lg card-hover transition transform hover:-translate-y-1 fade-in">
-                    <img src="news-article2.jpg" alt="News Article 2" class="w-full h-56 object-cover" />
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2">Expanding Service Network Across Africa</h3>
-                        <p class="text-gray-600 mb-4">
-                            Abgon is proud to announce new partnerships, ensuring enhanced service and support across
-                            the continent.
-                        </p>
-                        <a href="#" class="inline-block text-[var(--custom-orange)] font-semibold btn-hover transition">
-                            Read More &rarr;
-                        </a>
+    <main class="py-20">
+        <div class="container mx-auto px-4">
+            <!-- Featured Story -->
+            <div class="mb-20">
+                <h2 class="text-3xl font-bold text-center mb-12">Featured Success Story</h2>
+                <div class="bg-white rounded-lg overflow-hidden shadow-xl">
+                    <div class="grid md:grid-cols-2 items-center">
+                        <div class="relative h-[400px]">
+                            <img src="success-story1.jpg" alt="Featured Success Story" class="absolute inset-0 w-full h-full object-cover">
+                        </div>
+                        <div class="p-8 md:p-12">
+                            <span class="inline-block bg-orange-100 text-[var(--custom-orange)] px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                                Featured Story
+                            </span>
+                            <h3 class="text-3xl font-bold mb-4">Empowering Farmers in Rural Kenya</h3>
+                            <p class="text-gray-600 mb-8 text-lg leading-relaxed">Learn how our advanced agricultural solutions helped transform a small farming community, leading to a remarkable 300% increase in crop yields and sustainable economic growth.</p>
+                            <a href="#" class="btn-primary inline-flex items-center">
+                                Read Full Story
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Case Studies Section -->
-        <section class="fade-in">
-            <h2 class="text-3xl font-bold text-center mb-8" style="font-family: 'MicrogrammaDBolExt', sans-serif;">
-                Success Stories
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Case Study 1 -->
-                <div
-                    class="bg-white rounded-xl overflow-hidden shadow-lg card-hover transition transform hover:-translate-y-1 fade-in">
-                    <img src="success-story1.jpg" alt="Success Story 1" class="w-full h-60 object-cover" />
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2">Empowering Farmers in Rural Kenya</h3>
-                        <p class="text-gray-600 mb-4">
-                            See how our cutting-edge tractors transformed farming practices and boosted productivity.
-                        </p>
-                        <a href="#" class="inline-block text-[var(--custom-orange)] font-semibold btn-hover transition">
-                            Learn More &rarr;
-                        </a>
-                    </div>
-                </div>
-                <!-- Case Study 2 -->
-                <div
-                    class="bg-white rounded-xl overflow-hidden shadow-lg card-hover transition transform hover:-translate-y-1 fade-in">
-                    <img src="success-story2.jpg" alt="Success Story 2" class="w-full h-60 object-cover" />
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2">Record Yields with Abgon Harvesters</h3>
-                        <p class="text-gray-600 mb-4">
-                            Discover the success behind a local farm that achieved unprecedented yields with our
-                            technology.
-                        </p>
-                        <a href="#" class="inline-block text-[var(--custom-orange)] font-semibold btn-hover transition">
-                            Learn More &rarr;
-                        </a>
-                    </div>
+            <!-- Latest News Section -->
+            <div class="mb-20">
+                <h2 class="text-3xl font-bold text-center mb-12">Latest News</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- News Card 1 -->
+                    <article class="news-card bg-white rounded-lg overflow-hidden shadow-lg">
+                        <div class="relative">
+                            <img src="news-article1.jpg" alt="News Article 1" class="w-full h-56 object-cover">
+                            <span class="category-badge">Latest News</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center text-sm text-gray-500 mb-4">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                March 10, 2024
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">Next-Generation Irrigation Systems</h3>
+                            <p class="text-gray-600 mb-6">Revolutionizing water management with smart technology for sustainable farming in arid regions.</p>
+                            <a href="#" class="inline-flex items-center text-[var(--custom-orange)] hover:text-orange-600 font-semibold">
+                                Read More
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- News Card 2 -->
+                    <article class="news-card bg-white rounded-lg overflow-hidden shadow-lg">
+                        <div class="relative">
+                            <img src="success-story2.jpg" alt="Success Story 2" class="w-full h-56 object-cover">
+                            <span class="category-badge">Success Story</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center text-sm text-gray-500 mb-4">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                March 5, 2024
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">Record-Breaking Harvest Season</h3>
+                            <p class="text-gray-600 mb-6">Local farmers achieve unprecedented yields with Agbon's advanced harvesting solutions.</p>
+                            <a href="#" class="inline-flex items-center text-[var(--custom-orange)] hover:text-orange-600 font-semibold">
+                                Read More
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- News Card 3 -->
+                    <article class="news-card bg-white rounded-lg overflow-hidden shadow-lg">
+                        <div class="relative">
+                            <img src="news-article2.jpg" alt="News Article 2" class="w-full h-56 object-cover">
+                            <span class="category-badge">Latest News</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center text-sm text-gray-500 mb-4">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                March 1, 2024
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">Expanding Our African Network</h3>
+                            <p class="text-gray-600 mb-6">Strategic expansion brings premium agricultural solutions closer to farming communities.</p>
+                            <a href="#" class="inline-flex items-center text-[var(--custom-orange)] hover:text-orange-600 font-semibold">
+                                Read More
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
                 </div>
             </div>
-        </section>
+        </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white py-10 border-t border-gray-200 fade-in">
-        <div class="container mx-auto px-4 text-center">
-            <p class="mb-4">&copy; 2025 Abgon. All rights reserved.</p>
-            <div class="flex justify-center space-x-6 mb-4">
-                <a href="#" class="text-[var(--custom-gray)] hover:text-[var(--custom-orange)] transition">Facebook</a>
-                <a href="#" class="text-[var(--custom-gray)] hover:text-[var(--custom-orange)] transition">Twitter</a>
-                <a href="#" class="text-[var(--custom-gray)] hover:text-[var(--custom-orange)] transition">LinkedIn</a>
+    <footer class="bg-white border-t border-gray-200">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center md:text-left">
+                    <img src="agbonlogo.png" alt="Agbon Logo" class="h-12 w-auto mx-auto md:mx-0 mb-4">
+                    <p class="text-gray-600">Transforming African Agriculture with Innovation and Quality</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-[var(--custom-orange)]">About Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-[var(--custom-orange)]">Products</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-[var(--custom-orange)]">Services</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-[var(--custom-orange)]">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Connect</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-[var(--custom-orange)]">Facebook</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-[var(--custom-orange)]">Twitter</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-[var(--custom-orange)]">LinkedIn</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-[var(--custom-orange)]">Instagram</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-[var(--custom-orange)]">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-[var(--custom-orange)]">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-[var(--custom-orange)]">Cookie Policy</a></li>
+                    </ul>
+                </div>
             </div>
-            <nav class="text-sm">
-                <a href="#" class="mx-3 text-gray-600 hover:text-[var(--custom-orange)] transition">Privacy Policy</a>
-                <a href="#" class="mx-3 text-gray-600 hover:text-[var(--custom-orange)] transition">Terms of Service</a>
-            </nav>
+            <div class="border-t border-gray-200 mt-8 pt-8 text-center">
+                <p class="text-gray-600">&copy; 2024 Agbon. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // IntersectionObserver for fade-in animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
-
-        document.querySelectorAll('.fade-in').forEach(element => {
-            observer.observe(element);
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
         });
     </script>
 </body>

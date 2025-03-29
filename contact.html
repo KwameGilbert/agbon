@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Abgon | Contact & Distributor Locator</title>
+    <title>Agbon | Contact & Distributor Locator</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
@@ -51,31 +51,86 @@
             height: 100%;
             border: 0;
         }
+
+        /* Custom Button Styles */
+        .btn-primary {
+            background-color: var(--custom-orange);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: rgb(204, 93, 0);
+            transform: translateY(-2px);
+        }
+
+        /* Chat Widget Styles */
+        .chat-message {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.3s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(234, 107, 0, 0.4);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(234, 107, 0, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(234, 107, 0, 0);
+            }
+        }
     </style>
 </head>
 
 <body class="font-sans text-gray-800 bg-gray-50">
     <!-- Header -->
-    <header class="backdrop-blur-md bg-white/70 shadow-lg transition-all duration-300 fixed top-0 left-0 w-full z-50">
-        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <img src="agbonlogo.png" alt="Abgon Logo" class="h-12 w-auto" />
-                <span class="text-xl font-bold text-[var(--custom-orange)]">Abgon</span>
+    <header class="bg-white shadow-md fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="agbonlogo.png" alt="Agbon Logo" class="h-12 w-auto" />
+                </a>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-[var(--custom-orange)] transition-colors duration-300 font-medium">Home</a>
+                    <a href="index.html#services" class="text-gray-700 hover:text-[var(--custom-orange)] transition-colors duration-300 font-medium">Service Network</a>
+                    <a href="news.html" class="text-gray-700 hover:text-[var(--custom-orange)] transition-colors duration-300 font-medium">News</a>
+                    <a href="contact.html" class="btn-primary">Contact</a>
+                </nav>
+                <button class="md:hidden text-gray-700 hover:text-[var(--custom-orange)]" id="mobileMenuButton">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
-            <nav class="hidden md:block">
-                <ul class="flex space-x-8">
-                    <li><a href="index.html" class="text-gray-700 hover:text-[var(--custom-orange)] transition-colors duration-300 font-medium">Home</a></li>
-                    <li><a href="#services.html" class="text-gray-700 hover:text-[var(--custom-orange)] transition-colors duration-300 font-medium">Service Network</a></li>
-                    <li><a href="news.html" class="text-gray-700 hover:text-[var(--custom-orange)] transition-colors duration-300 font-medium">News</a></li>
-                    <li><a href="contact.html" class="bg-[var(--custom-orange)] text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-all duration-300 font-medium">Contact</a></li>
-                </ul>
-            </nav>
-            <!-- Mobile menu button -->
-            <button class="md:hidden text-gray-700 hover:text-[var(--custom-orange)]">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobileMenu">
+                <div class="py-4 space-y-4">
+                    <a href="index.html" class="block text-gray-700 hover:text-[var(--custom-orange)] transition-colors duration-300 font-medium">Home</a>
+                    <a href="index.html#services" class="block text-gray-700 hover:text-[var(--custom-orange)] transition-colors duration-300 font-medium">Service Network</a>
+                    <a href="news.html" class="block text-gray-700 hover:text-[var(--custom-orange)] transition-colors duration-300 font-medium">News</a>
+                    <a href="contact.html" class="block btn-primary text-center">Contact</a>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -98,9 +153,9 @@
     <main class="container mx-auto px-4 py-16">
         <!-- Contact Section -->
         <section id="contact" class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
-            <!-- Left: Contact Details & Map -->
-            <div class="space-y-8 fade-in">
-                <!-- Contact Details -->
+                <!-- Left: Contact Details & Map -->
+                <div class="space-y-8 fade-in">
+                    <!-- Contact Details -->
                 <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
                     <h3 class="text-2xl font-bold mb-6" style="font-family: 'MicrogrammaDBolExt', sans-serif;">Our Office</h3>
                     <div class="space-y-6">
@@ -156,32 +211,32 @@
                     <div class="map-container">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.794489572789!2d36.82194577600001!3d-1.2920656999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d2a2f39a67%3A0x1f0b98f5ba95262e!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2s!4v1647856789012!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
                     </div>
+                    </div>
                 </div>
-            </div>
-            <!-- Right: Contact Form -->
+                <!-- Right: Contact Form -->
             <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 fade-in">
                 <h3 class="text-2xl font-bold mb-6" style="font-family: 'MicrogrammaDBolExt', sans-serif;">Send Us a Message</h3>
-                <form id="contactForm" class="space-y-6">
-                    <div>
+                    <form id="contactForm" class="space-y-6">
+                        <div>
                         <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
                         <input type="text" id="name" name="name" class="w-full p-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--custom-orange)] focus:border-transparent transition-all duration-300" placeholder="Your Name" required>
-                    </div>
-                    <div>
+                        </div>
+                        <div>
                         <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
                         <input type="email" id="email" name="email" class="w-full p-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--custom-orange)] focus:border-transparent transition-all duration-300" placeholder="Your Email" required>
-                    </div>
-                    <div>
+                        </div>
+                        <div>
                         <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
                         <input type="text" id="subject" name="subject" class="w-full p-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--custom-orange)] focus:border-transparent transition-all duration-300" placeholder="Subject" required>
-                    </div>
-                    <div>
+                        </div>
+                        <div>
                         <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
                         <textarea id="message" name="message" rows="5" class="w-full p-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--custom-orange)] focus:border-transparent transition-all duration-300" placeholder="Your Message" required></textarea>
-                    </div>
+                        </div>
                     <button type="submit" class="w-full bg-[var(--custom-orange)] hover:bg-orange-600 text-white py-4 px-8 rounded-xl shadow-lg btn-hover transition-all duration-300 font-medium text-lg">
                         Send Message
                     </button>
-                </form>
+                    </form>
             </div>
         </section>
 
@@ -189,25 +244,25 @@
         <section id="locator" class="bg-white rounded-2xl shadow-lg p-8 fade-in">
             <div class="text-center max-w-3xl mx-auto mb-12">
                 <h2 class="text-4xl font-bold mb-4" style="font-family: 'MicrogrammaDBolExt', sans-serif;">Find a Distributor</h2>
-                <p class="text-gray-600 text-lg">Enter your location or choose a region below to find the nearest Abgon distributor.</p>
+                <p class="text-gray-600 text-lg">Enter your location or choose a region below to find the nearest Agbon distributor.</p>
             </div>
-            <!-- Locator Form -->
+                    <!-- Locator Form -->
             <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-8">
                 <input type="text" id="locationInput" class="w-full md:w-1/2 p-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--custom-orange)] focus:border-transparent transition-all duration-300" placeholder="Enter your location">
                 <select id="regionSelect" class="w-full md:w-1/3 p-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--custom-orange)] focus:border-transparent transition-all duration-300">
-                    <option value="all">All Regions</option>
-                    <option value="east-africa">East Africa</option>
-                    <option value="west-africa">West Africa</option>
-                    <option value="southern-africa">Southern Africa</option>
-                    <option value="north-africa">North Africa</option>
-                </select>
+                            <option value="all">All Regions</option>
+                            <option value="east-africa">East Africa</option>
+                            <option value="west-africa">West Africa</option>
+                            <option value="southern-africa">Southern Africa</option>
+                            <option value="north-africa">North Africa</option>
+                        </select>
                 <button onclick="searchDistributor()" class="w-full md:w-auto bg-[var(--custom-orange)] hover:bg-orange-600 text-white py-4 px-8 rounded-xl shadow-lg btn-hover transition-all duration-300 font-medium text-lg">
-                    Search
-                </button>
-            </div>
-            <!-- Distributor Results -->
+                            Search
+                        </button>
+                    </div>
+                    <!-- Distributor Results -->
             <div id="distributorResults" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Distributor cards will be dynamically inserted here -->
+                        <!-- Distributor cards will be dynamically inserted here -->
             </div>
         </section>
     </main>
@@ -231,11 +286,11 @@
     <!-- Chat Widget -->
     <div id="chatWidget" class="fixed bottom-6 right-6 z-50">
         <!-- Chat Button -->
-        <button id="chatButton" class="bg-[var(--custom-orange)] hover:bg-orange-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 group">
+        <button id="chatButton" class="chat-pulse bg-[var(--custom-orange)] hover:bg-orange-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
             </svg>
-            <span class="hidden md:inline-block">Chat with us</span>
+            <span class="hidden md:inline">Chat with us</span>
         </button>
 
         <!-- Chat Window -->
@@ -249,7 +304,7 @@
                         </svg>
                     </div>
                     <div>
-                        <h3 class="font-semibold">Abgon Support</h3>
+                        <h3 class="font-semibold">Agbon Support</h3>
                         <p class="text-sm text-white/80">Online</p>
                     </div>
                 </div>
@@ -263,7 +318,7 @@
             <!-- Chat Messages -->
             <div id="chatMessages" class="h-96 overflow-y-auto p-4 space-y-4">
                 <!-- Welcome Message -->
-                <div class="flex items-start space-x-3">
+                <div class="chat-message flex items-start space-x-3">
                     <div class="w-8 h-8 bg-[var(--custom-orange)]/10 rounded-full flex items-center justify-center flex-shrink-0">
                         <svg class="w-4 h-4 text-[var(--custom-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
@@ -290,7 +345,102 @@
     </div>
 
     <script>
-        // IntersectionObserver for fade-in animations
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Chat Widget Functionality
+        const chatButton = document.getElementById('chatButton');
+        const chatWindow = document.getElementById('chatWindow');
+        const closeChat = document.getElementById('closeChat');
+        const chatForm = document.getElementById('chatForm');
+        const chatInput = document.getElementById('chatInput');
+        const chatMessages = document.getElementById('chatMessages');
+
+        // Toggle chat window
+        chatButton.addEventListener('click', () => {
+            chatWindow.classList.toggle('hidden');
+            chatInput.focus();
+            chatButton.classList.remove('chat-pulse');
+        });
+
+        closeChat.addEventListener('click', () => {
+            chatWindow.classList.add('hidden');
+        });
+
+        // Handle chat form submission
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const message = chatInput.value.trim();
+            if (message) {
+                // Add user message
+                addMessage(message, 'user');
+                chatInput.value = '';
+
+                // Simulate bot response
+                setTimeout(() => {
+                    const botResponse = getBotResponse(message);
+                    addMessage(botResponse, 'bot');
+                }, 1000);
+            }
+        });
+
+        // Add message to chat
+        function addMessage(message, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message flex items-start space-x-3 ${sender === 'user' ? 'justify-end' : ''}`;
+            
+            if (sender === 'user') {
+                messageDiv.innerHTML = `
+                    <div class="bg-[var(--custom-orange)] text-white rounded-2xl rounded-tr-none px-4 py-2 max-w-[80%]">
+                        <p>${message}</p>
+                    </div>
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <div class="w-8 h-8 bg-[var(--custom-orange)]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-[var(--custom-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+                        </svg>
+                    </div>
+                    <div class="bg-gray-100 rounded-2xl rounded-tl-none px-4 py-2 max-w-[80%]">
+                        <p class="text-gray-800">${message}</p>
+                    </div>
+                `;
+            }
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Simple bot response logic
+        function getBotResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
+                return "Hello! How can I assist you today?";
+            } else if (lowerMessage.includes('product') || lowerMessage.includes('products')) {
+                return "We offer a wide range of agricultural products including tractors, harvesters, and irrigation systems. Would you like to know more about any specific product?";
+            } else if (lowerMessage.includes('price') || lowerMessage.includes('cost')) {
+                return "Our prices vary depending on the product and quantity. Would you like to speak with a sales representative about specific pricing?";
+            } else if (lowerMessage.includes('contact') || lowerMessage.includes('reach')) {
+                return "You can reach us through our contact form, email at info@abgon.com, or call us at +254 123 456789. How would you prefer to connect?";
+            } else if (lowerMessage.includes('distributor') || lowerMessage.includes('location')) {
+                return "We have distributors across Africa. You can use our distributor locator tool to find the nearest one to you. Would you like me to help you locate a distributor?";
+            } else if (lowerMessage.includes('service') || lowerMessage.includes('support')) {
+                return "We provide comprehensive after-sales support and maintenance services. Our local service teams are available 24/7. What type of service do you need?";
+            } else if (lowerMessage.includes('thank')) {
+                return "You're welcome! Is there anything else I can help you with?";
+            } else {
+                return "I'm here to help! Could you please provide more details about your question? I can assist with information about our products, services, pricing, or support.";
+            }
+        }
+
+        // Fade-in animation
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -299,6 +449,7 @@
                 }
             });
         }, { threshold: 0.2 });
+
         document.querySelectorAll('.fade-in').forEach(element => {
             observer.observe(element);
         });
@@ -356,88 +507,6 @@
             alert('Thank you for contacting Abgon! We will get back to you shortly.');
             this.reset();
         });
-
-        // Chat Widget Functionality
-        const chatButton = document.getElementById('chatButton');
-        const chatWindow = document.getElementById('chatWindow');
-        const closeChat = document.getElementById('closeChat');
-        const chatForm = document.getElementById('chatForm');
-        const chatInput = document.getElementById('chatInput');
-        const chatMessages = document.getElementById('chatMessages');
-
-        // Toggle chat window
-        chatButton.addEventListener('click', () => {
-            chatWindow.classList.toggle('hidden');
-            chatInput.focus();
-        });
-
-        closeChat.addEventListener('click', () => {
-            chatWindow.classList.add('hidden');
-        });
-
-        // Handle chat form submission
-        chatForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const message = chatInput.value.trim();
-            if (message) {
-                // Add user message
-                addMessage(message, 'user');
-                chatInput.value = '';
-
-                // Simulate bot response
-                setTimeout(() => {
-                    const botResponse = getBotResponse(message);
-                    addMessage(botResponse, 'bot');
-                }, 1000);
-            }
-        });
-
-        // Add message to chat
-        function addMessage(message, sender) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `flex items-start space-x-3 ${sender === 'user' ? 'justify-end' : ''}`;
-            
-            if (sender === 'user') {
-                messageDiv.innerHTML = `
-                    <div class="bg-[var(--custom-orange)] text-white rounded-2xl rounded-tr-none px-4 py-2 max-w-[80%]">
-                        <p>${message}</p>
-                    </div>
-                `;
-            } else {
-                messageDiv.innerHTML = `
-                    <div class="w-8 h-8 bg-[var(--custom-orange)]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                        <svg class="w-4 h-4 text-[var(--custom-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
-                        </svg>
-                    </div>
-                    <div class="bg-gray-100 rounded-2xl rounded-tl-none px-4 py-2 max-w-[80%]">
-                        <p class="text-gray-800">${message}</p>
-                    </div>
-                `;
-            }
-            
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        // Simple bot response logic
-        function getBotResponse(message) {
-            const lowerMessage = message.toLowerCase();
-            
-            if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
-                return "Hello! How can I assist you today?";
-            } else if (lowerMessage.includes('product') || lowerMessage.includes('products')) {
-                return "We offer a wide range of agricultural products. Would you like to know more about specific products or categories?";
-            } else if (lowerMessage.includes('price') || lowerMessage.includes('cost')) {
-                return "Our prices vary depending on the product and quantity. Would you like to know the price for a specific product?";
-            } else if (lowerMessage.includes('contact') || lowerMessage.includes('reach')) {
-                return "You can reach us through our contact form on the website, or call us at +254 123 456789. We're here to help!";
-            } else if (lowerMessage.includes('distributor') || lowerMessage.includes('location')) {
-                return "We have distributors across Africa. You can use our distributor locator tool to find the nearest one to you.";
-            } else {
-                return "I'm here to help! Could you please provide more details about your question?";
-            }
-        }
     </script>
 </body>
 
